@@ -1,21 +1,28 @@
 package co.edu.universidad.biblioteca.modelo;
 
-public class Revista{
+public class Revista extends Material{
 	
 	private String numeroEdicion;
+
+	public Revista(String codigo, String titulo, int anioPublicacion, String numeroEdicion) {
+		super(codigo, titulo, anioPublicacion);
+		this.numeroEdicion = numeroEdicion;
+	}
 	
+	@Override 
 	public int diasMaximoPrestamo(){
 		return 5;
 	}
 	
 	public String getTipo(){
-		String tipo = "Revista";
-		return tipo;
+		return "Revista";
 	}
 	
-	@Override
+	@Override 
 	public String toString(){
-		 System.out.println("Tipo de material: "+ tipo);
-        return super.toString();
+		return String.format(super.toString()+"| Edicion No.: "+ numeroEdicion);
 	}
+	
+
+	
 }
